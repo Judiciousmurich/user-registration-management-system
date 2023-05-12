@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration Management System</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+    <h1 class="head">User Registration Management System</h1>
+    <header>
+        <nav>
+            <ul class="ul">
+                <li class="list"><a href="">Home</a></li>
+                <li class="list"><a href="">Resources</a></li>
+                <li class="list"><a href="">Blog</a></li>
+                <li class="list"><a href="">Downloads</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="form-container">
+            <h2>Create User</h2>
+            <form id="create-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+
+                <label for="id">ID Number:</label>
+                <input type="text" id="id" required>
+
+                <label for="country">Country:</label>
+                <select id="country" required>
+                    <option value="">Select Country</option>
+                    <option value="USA">USA</option>
+                    <option value="Canada">CANADA</option>
+                    <option value="UK">UK</option>
+                    <option value="USA">CONGO</option>
+                    <option value="Canada">UGANDA</option>
+                    <option value="UK">TANZANIA</option>
+                </select>
+
+                <label for="languages">Languages Spoken:</label>
+                <select id="languages" required>
+                    <option value="">Select Language</option>
+                    <option value="English">English</option>
+                    <option value="Swahili">Swahili</option>
+                    <option value="luganda">luganda</option>
+                    <option value="Kamba">Kamba</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="French">French</option>
+                </select>
+                <button type="submit" id="create-btn">Create User</button>
+                
+            </form>
+        </div>
+
+        
+        <div class="table-container">
+            <h2>Registered Users</h2>
+            <table id="users-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>ID Number</th>
+                        <th>Country</th>
+                        <th>Languages Spoken</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr>
+                        <td>Ephraim Muthui</td>
+                        <td>2345657</td>
+                        <td>Kenya</td>
+                        <td>German</td>
+                        <td id="delete">delete</td>
+                    </tr>
+                    <tr>
+                        <td>Joseph Muthui</td>
+                        <td>200000</td>
+                        <td>Uk</td>
+                        <td>English</td>
+                        <td id="delete">delete</td>
+                    </tr>
+                    <tr>
+                        <td>John kelvin</td>
+                        <td>23456577</td>
+                        <td>Canada</td>
+                        <td>Swahili</td>
+                        <td id="delete">delete</td>
+                    </tr>
+                    
+                    
+            
+                </thead>
+                <tbody id="users-list">
+                    <tr>
+                        <td>monah</td>
+                        <td>30000</td>
+                        <td>Rwada</td>
+                        <td>luganda</td>
+                        <td id="delete">delete</td>
+                        
+                </tbody>
+            </table>
+        </div>
+        <div class="main">
+              
+        </div>
+    </div>
+    <div class="master-container">
+        
+    </div>
+</body>
+</html>
