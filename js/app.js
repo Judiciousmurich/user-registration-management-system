@@ -1,11 +1,11 @@
-// Add User
+let users = [];
+
 const createForm = document.getElementById('create-form');
 createForm.addEventListener('submit', addUser);
 
 function addUser(event) {
   event.preventDefault();
 
-  // Get input values
   const nameInput = document.getElementById('name');
   const idInput = document.getElementById('id');
   const countryInput = document.getElementById('country');
@@ -16,31 +16,64 @@ function addUser(event) {
   const country = countryInput.value;
   const languages = languagesInput.value;
 
-  // Create a new row for the user
-  const table = document.getElementById('users-table');
-  const newRow = document.createElement('tr');
-  newRow.innerHTML = `
-    <td>${name}</td>
-    <td>${id}</td>
-    <td>${country}</td>
-    <td>${languages}</td>
-    <td id="delete" onclick="deleteUser(this)">delete</td>
-  `;
+  // Check if any field is empty
+  if (!name || !id || !country || !languages) {
+    alert('Please fill in all fields');
+    return;
+  }
 
-  // Append the new row to the table
-  const usersList = document.getElementById('users-list');
-  usersList.appendChild(newRow);
+  const user = {
+    name: name,
+    id: id,
+    country: country,
+    languages: languages
+  };
 
-  // Clear the form fields
+  users.push(user);
+
   nameInput.value = '';
   idInput.value = '';
   countryInput.value = '';
   languagesInput.value = '';
+
+  displayUsers();
 }
 
-// Delete User
-function deleteUser(element) {
-  const row = element.parentNode;
-  const table = document.getElementById('users-table');
-  table.removeChild(row);
+function displayUsers() {
+  const usersList = document.getElementById('users-list');
+  usersList.innerHTML = '';
+
+  for (let i = 0; i < users.length; i++) {
+    const user = users[i];
+
+    const newRow = document.createElement('tr');
+    newRow.innerHTML = `
+      <td>${user.name}</td>
+      <td>${user.id}</td>
+      <td>${user.country}</td>
+      <td>${user.languages}</td>
+      <td id="delete" onclick="deleteUser(${i})">delete</td>
+    `;
+
+    usersList.appendChild(newRow);
+  }
 }
+
+function deleteUser(index) {
+  users.splice(index, 1);
+  displayUsers();
+}
+
+// Alert the user when a field is empty and when info is submitted
+createForm.addEventListener('submit', function () {
+  const nameInput = document.getElementById('name');
+  const idInput = document.getElementById('id');
+  const countryInput = document.getElementById('country');
+  const languagesInput = document.getElementById('languages');
+
+  if (nameInput===""|| idInput==="" || countryInput ===""|| languagesInput==="") {
+    alert('Please fill in all fields');
+  } else {
+    alert('User information submitted successfully');
+  }
+});
